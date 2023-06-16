@@ -1,6 +1,11 @@
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 
-const Books = ({ bookListProps, deleteBookProps, checkBookHandlerProps }) => {
+const Books = ({
+	bookListProps,
+	deleteBookProps,
+	checkBookHandlerProps,
+	// editBookHandlerProps,
+}) => {
 	return (
 		<div className="books">
 			{bookListProps.length === 0 ? (
@@ -29,7 +34,10 @@ const Books = ({ bookListProps, deleteBookProps, checkBookHandlerProps }) => {
 							</div>
 
 							<div className="book-cta">
-								<button className="edit btn">
+								<button
+									className="edit btn"
+									// onClick={() => editBookHandlerProps(id)}
+								>
 									<AiFillEdit />
 								</button>
 								<button

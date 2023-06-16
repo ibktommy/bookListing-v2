@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { nanoid } from "nanoid";
 
-const Form = ({ addBook, setLocalStorageHandler }) => {
+const Form = ({ addBook }) => {
 	const [title, setTitle] = useState("");
 	const [author, setAuthor] = useState("");
 	const [image, setImage] = useState(null);
@@ -34,7 +34,7 @@ const Form = ({ addBook, setLocalStorageHandler }) => {
 			title: title,
 			author: author,
 			image: URL.createObjectURL(image),
-      checked: false
+			checked: false,
 		};
 
 		addBook(newBookItem);
@@ -46,10 +46,22 @@ const Form = ({ addBook, setLocalStorageHandler }) => {
 	return (
 		<form onSubmit={formSubmitHandler}>
 			<div className="form-input">
-				<input type="text" value={title} onChange={titleHandler} />
+				<input
+					type="text"
+					id="title"
+					placeholder="Enter Book Title"
+					value={title}
+					onChange={titleHandler}
+				/>
 			</div>
 			<div className="form-input">
-				<input type="text" value={author} onChange={authorHandler} />
+				<input
+					type="text"
+					id="author"
+					placeholder="Enter Book Author"
+					value={author}
+					onChange={authorHandler}
+				/>
 			</div>
 			<div className="form-input">
 				<input type="file" accept="image/*" onChange={imagehandler} />

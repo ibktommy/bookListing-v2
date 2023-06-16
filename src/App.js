@@ -2,6 +2,8 @@ import { useState } from "react";
 import Form from "./components/Form";
 import Books from "./components/Books";
 
+// let bookTitleDOM = document.querySelector("#title");
+// let bookAuthorDOM = document.querySelector("#author");
 
 // Function that gets books from localStorage
 function getLocalStorageHandler() {
@@ -41,19 +43,29 @@ const App = () => {
 		setBookList([]);
 	}
 
-  function checkBookHandler(bookID) {
+	function checkBookHandler(bookID) {
 		const checkedBookList = bookList.map((book) => {
-      if (book.id === bookID) {
-        let checkedBook = {...book, checked: !book.checked}
-        console.log(checkedBook)
-        return checkedBook
-      }
-      return book
-    })
+			if (book.id === bookID) {
+				let checkedBook = { ...book, checked: !book.checked };
+				console.log(checkedBook);
+				return checkedBook;
+			}
+			return book;
+		});
 
-    setBookList(checkedBookList)
-    setLocalStorageHandler(checkedBookList)
+		setBookList(checkedBookList);
+		setLocalStorageHandler(checkedBookList);
 	}
+
+	// function editBookHandler(bookID) {
+	// 	const editedBookList = bookList.map((book) => {
+	// 		if (book.id === bookID) {
+	// 			const { title, author } = book;
+	// 			bookTitleDOM.value = title;
+	// 			bookAuthorDOM.value = author;
+	// 		}
+	// 	});
+	// }
 
 	return (
 		<div className="container">
@@ -65,6 +77,7 @@ const App = () => {
 					deleteBookProps={deletebook}
 					deleteAllBooksProps={deleteAllBooks}
 					checkBookHandlerProps={checkBookHandler}
+					// editBookHandlerProps={editBookHandler}
 				/>
 				{bookList.length > 0 && (
 					<button className="del-btn" onClick={deleteAllBooks}>

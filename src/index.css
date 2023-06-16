@@ -64,6 +64,11 @@ form {
   border-bottom: .1rem solid var(--grey);
 }
 
+.form-input input::placeholder {
+  opacity: .4;
+  letter-spacing: var(--text-spacing);
+}
+
 .form-input input:focus {
   outline: none;
 }
