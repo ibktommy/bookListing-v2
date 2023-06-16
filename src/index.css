@@ -51,9 +51,9 @@ body {
 form {
   width: 100%;
   margin-top: 3rem;
+  margin-bottom: 1.5rem;
   display: flex;
   flex-direction: column;
-  margin-bottom: .1rem solid var(--medium-dark);
 }
 
 .form-input input {
@@ -90,4 +90,71 @@ footer {
   margin-top: 1.2rem;
   font-size: 1.6rem;
   color: var(--grey);
+}
+
+.books {
+  border: .1rem solid var(--grey);
+  padding: 1rem;
+}
+
+.book-item {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  position: relative;
+  padding-bottom: .7rem;
+  margin-bottom: 1rem;
+  border-bottom: .1rem solid rgba(128, 128, 128, 0.4);
+}
+
+.book-item input {
+  display: inline-block;
+  margin-right: 3rem;
+  cursor: pointer;
+}
+
+.book-details {
+  display: flex;
+  align-items: center;
+}
+
+.book-details img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1.4rem;
+}
+
+.book-details-text h4 {
+  font-size: 2rem;
+  text-transform: capitalize;
+}
+
+.book-details-text p {
+  text-transform: uppercase;
+  font-size: 1.4rem;
+}
+
+.book-cta {
+  position: absolute;
+  right: 0;
+}
+
+.btn {
+  display: inline-block;
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  color: var(--icon-color);
+  cursor: pointer;
+}
+
+.btn.edit {
+  margin-right: 1rem;
+  color: #ff9a0c;
+}
+
+.btn.delete {
+  color: rgb(247, 27, 27)
 }

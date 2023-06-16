@@ -1,11 +1,23 @@
+import { useState } from "react";
 import Form from "./components/Form";
+import Books from "./components/Books";
 
 const App = () => {
+
+  const [bookList, setBookList] = useState([])
+
+  // Function to get BookItem from the Form Component inside the BookList-State
+  function addBookHandler(bookItem) {
+    setBookList([bookItem, ...bookList]);
+    console.log(bookList)
+  }
+
 	return (
 		<div className="container">
 			<div className="main">
 				<h1 className="header">My BookList</h1>
-				<Form />
+				<Form addBook={addBookHandler}/>
+        <Books bookListProps={bookList}/>
 			</div>
 			<footer>Copyright © Atomdev, 2023</footer>
 		</div>
