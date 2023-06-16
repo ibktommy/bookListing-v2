@@ -2,12 +2,11 @@ import { useState } from "react";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 
 const Books = ({ bookListProps, deleteBookProps }) => {
+	const [checked, setIsChecked] = useState(false);
 
-  const [checked, setIsChecked] = useState(false)
-
-  function checkedHandler(e) {
-    setIsChecked(!checked)
-  }
+	function checkedHandler(e) {
+		setIsChecked(!checked);
+	}
 
 	return (
 		<div className="books">
@@ -24,11 +23,11 @@ const Books = ({ bookListProps, deleteBookProps }) => {
 								<img
 									src={image}
 									alt={title}
-									className={checked ? "checked" : ""}
+									className={!checked ? "checked" : null}
 								/>
 								<div className="book-details-text">
-									<h4 className={checked ? "checked" : ""}>{title}</h4>
-									<p className={checked ? "checked" : ""}>{author}</p>
+									<h4 className={!checked ? "checked" : null}>{title}</h4>
+									<p className={!checked ? "checked" : null}>{author}</p>
 								</div>
 							</div>
 

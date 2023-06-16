@@ -55,7 +55,7 @@ const Form = ({addBook}) => {
 				<input type="file" accept="image/*" onChange={imagehandler}/>
 			</div>
 			<button className="form-btn" type="submit">
-				add item
+				add books
 			</button>
 		</form>
 	);

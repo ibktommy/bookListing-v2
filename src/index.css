@@ -102,6 +102,11 @@ footer {
   font-size: 1.5rem;
 }
 
+/* .book-item {
+  display: flex;
+  flex-direction: column;
+} */
+
 .book-item {
   display: flex;
   align-items: center;
@@ -171,4 +176,22 @@ footer {
 
 .btn.delete {
   color: rgb(247, 27, 27)
+}
+
+.book-item-bottom {
+  margin-top: 1rem;
+}
+
+.del-btn {
+  display: inline-block;
+  width: 100%;
+  background: goldenrod;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: var(--text-spacing);
+  border: 0;
+  padding: 1rem 0;
+  margin-top: 1.5rem;
+  cursor: pointer;
 }
