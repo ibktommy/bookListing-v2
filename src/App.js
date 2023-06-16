@@ -31,8 +31,8 @@ const App = () => {
 	}
 
 	// function to remove a book from the booklist
-	function deletebook(id) {
-		const filteredBooks = bookList.filter((book) => book.id !== id);
+	function deletebook(bookID) {
+		const filteredBooks = bookList.filter((book) => book.id !== bookID);
 		setBookList(filteredBooks);
 		setLocalStorageHandler(filteredBooks);
 	}
@@ -41,17 +41,30 @@ const App = () => {
 		setBookList([]);
 	}
 
+  function checkBookHandler(bookID) {
+		const checkedBookList = bookList.map((book) => {
+      if (book.id === bookID) {
+        let checkedBook = {...book, checked: !book.checked}
+        console.log(checkedBook)
+        return checkedBook
+      }
+      return book
+    })
+
+    setBookList(checkedBookList)
+    setLocalStorageHandler(checkedBookList)
+	}
+
 	return (
 		<div className="container">
 			<div className="main">
 				<h1 className="header">My BookList</h1>
-				<Form
-					addBook={addBookHandler}
-				/>
+				<Form addBook={addBookHandler} />
 				<Books
 					bookListProps={bookList}
 					deleteBookProps={deletebook}
 					deleteAllBooksProps={deleteAllBooks}
+					checkBookHandlerProps={checkBookHandler}
 				/>
 				{bookList.length > 0 && (
 					<button className="del-btn" onClick={deleteAllBooks}>

@@ -102,11 +102,6 @@ footer {
   font-size: 1.5rem;
 }
 
-/* .book-item {
-  display: flex;
-  flex-direction: column;
-} */
-
 .book-item {
   display: flex;
   align-items: center;
@@ -194,4 +189,12 @@ footer {
   padding: 1rem 0;
   margin-top: 1.5rem;
   cursor: pointer;
+}
+
+/* SMARTPHONE */
+@media screen and (max-width: 700px) {
+  .main {
+    width: 95vw;
+    margin-top: 10rem;
+  }
 }

@@ -1,23 +1,20 @@
-import { useState } from "react";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 
-const Books = ({ bookListProps, deleteBookProps }) => {
-	const [checked, setIsChecked] = useState(false);
-
-	function checkedHandler(e) {
-		setIsChecked(!checked);
-	}
-
+const Books = ({ bookListProps, deleteBookProps, checkBookHandlerProps }) => {
 	return (
 		<div className="books">
 			{bookListProps.length === 0 ? (
 				<h3 className="empty-header">Your booklist is empty, add books</h3>
 			) : (
 				bookListProps.map((bookItem) => {
-					const { id, title, author, image } = bookItem;
+					const { id, title, author, image, checked } = bookItem;
 					return (
 						<article className="book-item" key={id}>
-							<input type="checkbox" onChange={checkedHandler} />
+							<input
+								type="checkbox"
+								onChange={() => checkBookHandlerProps(id)}
+								checked={checked}
+							/>
 
 							<div className="book-details">
 								<img

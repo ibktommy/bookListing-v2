@@ -34,6 +34,7 @@ const Form = ({ addBook, setLocalStorageHandler }) => {
 			title: title,
 			author: author,
 			image: URL.createObjectURL(image),
+      checked: false
 		};
 
 		addBook(newBookItem);
