@@ -2,29 +2,42 @@ import { useState } from "react";
 import Form from "./components/Form";
 import Books from "./components/Books";
 
+
+// Function that gets books from localStorage
+function getLocalStorageHandler() {
+	let booksBrowserData = localStorage.getItem("Booklist");
+
+	if (booksBrowserData) {
+		booksBrowserData = JSON.parse(booksBrowserData);
+	} else {
+		booksBrowserData = [];
+	}
+	return booksBrowserData;
+}
+
 // Function that adds books into the localStorage
-function localStorageHandler(books) {
-  localStorage.setItem('Booklist', JSON.stringify(books))
+function setLocalStorageHandler(books) {
+	localStorage.setItem("Booklist", JSON.stringify(books));
 }
 
 const App = () => {
-  const [bookList, setBookList] = useState([])
+	const [bookList, setBookList] = useState(getLocalStorageHandler());
 
-  // Function to get BookItem from the Form Component inside the BookList-State
-  function addBookHandler(bookItem) {
-    const books = [bookItem, ...bookList];
-    setBookList(books);
-    localStorageHandler(books)
-  }
+	// Function to get BookItem from the Form Component inside the BookList-State
+	function addBookHandler(bookItem) {
+		const books = [bookItem, ...bookList];
+		setBookList(books);
+		setLocalStorageHandler(books);
+	}
 
-  // function to remove a book from the booklist
-  function deletebook(id) {
-    const filteredBooks = bookList.filter((book) => book.id !== id)
-    setBookList(filteredBooks)
-    localStorageHandler(filteredBooks)
-  }
+	// function to remove a book from the booklist
+	function deletebook(id) {
+		const filteredBooks = bookList.filter((book) => book.id !== id);
+		setBookList(filteredBooks);
+		setLocalStorageHandler(filteredBooks);
+	}
 
-  function deleteAllBooks() {
+	function deleteAllBooks() {
 		setBookList([]);
 	}
 
@@ -32,7 +45,9 @@ const App = () => {
 		<div className="container">
 			<div className="main">
 				<h1 className="header">My BookList</h1>
-				<Form addBook={addBookHandler} />
+				<Form
+					addBook={addBookHandler}
+				/>
 				<Books
 					bookListProps={bookList}
 					deleteBookProps={deletebook}
