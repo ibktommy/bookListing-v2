@@ -6,7 +6,6 @@ const Form = ({addBook}) => {
   const [author, setAuthor] = useState('')
   const [image, setImage] = useState(null)
 
-
   function titleHandler(e) {
     setTitle(e.target.value)
   }

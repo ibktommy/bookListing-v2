@@ -23,11 +23,11 @@ const Books = ({ bookListProps, deleteBookProps }) => {
 								<img
 									src={image}
 									alt={title}
-									className={!checked ? "checked" : null}
+									className={checked ? "checked" : null}
 								/>
 								<div className="book-details-text">
-									<h4 className={!checked ? "checked" : null}>{title}</h4>
-									<p className={!checked ? "checked" : null}>{author}</p>
+									<h4 className={checked ? "checked" : null}>{title}</h4>
+									<p className={checked ? "checked" : null}>{author}</p>
 								</div>
 							</div>
 

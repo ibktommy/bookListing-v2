@@ -2,20 +2,26 @@ import { useState } from "react";
 import Form from "./components/Form";
 import Books from "./components/Books";
 
-const App = () => {
+// Function that adds books into the localStorage
+function localStorageHandler(books) {
+  localStorage.setItem('Booklist', JSON.stringify(books))
+}
 
+const App = () => {
   const [bookList, setBookList] = useState([])
 
   // Function to get BookItem from the Form Component inside the BookList-State
   function addBookHandler(bookItem) {
-    setBookList([bookItem, ...bookList]);
-    console.log(bookList)
+    const books = [bookItem, ...bookList];
+    setBookList(books);
+    localStorageHandler(books)
   }
 
   // function to remove a book from the booklist
   function deletebook(id) {
     const filteredBooks = bookList.filter((book) => book.id !== id)
-    return setBookList(filteredBooks)
+    setBookList(filteredBooks)
+    localStorageHandler(filteredBooks)
   }
 
   function deleteAllBooks() {
