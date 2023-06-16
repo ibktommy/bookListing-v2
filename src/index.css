@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+:root {
+  --grey: #a3aaae;
+  --icon-color: #b8b9fa;
+  --medium-dark: #044750;
+  --text-spacing: .2rem;
+}
+
 html {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 62.5%;
@@ -18,7 +25,9 @@ body {
   width: 100vw;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  color: var(--medium-dark);
 }
 
 .main {
@@ -26,4 +35,59 @@ body {
   box-shadow: rgba(60,60,67,0.3) 0px 1px 2px 0px, rgba(60,64,67,0.15) 0px 1px 3px 1px;
   width: 60rem;
   border-radius: .5rem;
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+.header {
+  text-transform: uppercase;
+  align-self: center;
+  padding-bottom: .2rem;
+  border-bottom: .2rem solid goldenrod;
+}
+
+form {
+  width: 100%;
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: .1rem solid var(--medium-dark);
+}
+
+.form-input input {
+  width: 100%;
+  margin-bottom: 2rem;
+  height: 3.5rem;
+  border: 0;
+  border-bottom: .1rem solid var(--grey);
+}
+
+.form-input input:focus {
+  outline: none;
+}
+
+.form-btn {
+  align-self: flex-end;
+  letter-spacing: var(--text-spacing);
+  background-color: goldenrod;
+  padding: 1.2rem 2rem;
+  border: 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #fff;
+  border-radius: .4rem;
+  cursor: pointer;
+}
+
+.form-btn:hover {
+  transform: scale(1.05);
+  transition: .2s ease;
+}
+
+footer {
+  margin-top: 1.2rem;
+  font-size: 1.6rem;
+  color: var(--grey);
 }
