@@ -41,6 +41,7 @@ const App = () => {
 
 	function deleteAllBooks() {
 		setBookList([]);
+    setLocalStorageHandler([])
 	}
 
 	function checkBookHandler(bookID) {
