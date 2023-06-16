@@ -97,6 +97,11 @@ footer {
   padding: 1rem;
 }
 
+.books .empty-header {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
 .book-item {
   display: flex;
   align-items: center;
