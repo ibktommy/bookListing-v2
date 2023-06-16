@@ -12,12 +12,18 @@ const App = () => {
     console.log(bookList)
   }
 
+  // function to remove a book from the booklist
+  function deletebook(id) {
+    const filteredBooks = bookList.filter((book) => book.id !== id)
+    return setBookList(filteredBooks)
+  }
+
 	return (
 		<div className="container">
 			<div className="main">
 				<h1 className="header">My BookList</h1>
 				<Form addBook={addBookHandler}/>
-        <Books bookListProps={bookList}/>
+        <Books bookListProps={bookList} deleteBookProps={deletebook}/>
 			</div>
 			<footer>Copyright © Atomdev, 2023</footer>
 		</div>
